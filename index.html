@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sims 4 · cheat database</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #181a22;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      padding: 2rem 1.5rem;
+      color: #e7e9f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1400px;
+      width: 100%;
+    }
+
+    /* header */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #2f3342;
+      padding-bottom: 1.5rem;
+    }
+
+    .header h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #c0d0ff, #a0b9ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header small {
+      color: #8b92b0;
+      font-size: 0.95rem;
+      background: #282d3e;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #3c425a;
+    }
+
+    /* search bar */
+    .search-wrapper {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6b738f;
+      pointer-events: none;
+      font-size: 1.2rem;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 1rem 1rem 1rem 3.5rem;
+      background: #1e2232;
+      border: 1px solid #343b52;
+      border-radius: 60px;
+      font-size: 1.1rem;
+      color: #f0f3fc;
+      outline: none;
+      transition: 0.2s;
+      font-weight: 450;
+    }
+
+    #searchInput::placeholder {
+      color: #656d8a;
+      font-weight: 350;
+      letter-spacing: 0.3px;
+    }
+
+    #searchInput:focus {
+      border-color: #6f85e0;
+      box-shadow: 0 0 0 3px rgba(95, 130, 255, 0.2);
+      background: #1b1f2e;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #8890ae;
+      padding: 0 0.3rem;
+    }
+
+    #clearBtn {
+      background: transparent;
+      border: none;
+      color: #6f85e0;
+      cursor: pointer;
+      font-weight: 500;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      transition: 0.15s;
+    }
+
+    #clearBtn:hover {
+      background: #2b3147;
+      color: #b6c6ff;
+    }
+
+    /* card grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 0.25rem;
+    }
+
+    /* sheet card */
+    .sheet-card {
+      background: #1c202f;
+      border-radius: 24px;
+      border: 1px solid #2b3147;
+      overflow: hidden;
+      transition: 0.15s ease;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .sheet-card:hover {
+      border-color: #4a547a;
+      background: #202637;
+    }
+
+    .sheet-header {
+      padding: 0.9rem 1.4rem;
+      background: #252b40;
+      border-bottom: 1px solid #2c334b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sheet-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #d3dcff;
+      letter-spacing: 0.2px;
+    }
+
+    .sheet-badge {
+      background: #2f3650;
+      border-radius: 40px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #a0acd6;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .entries {
+      padding: 0.6rem 0.8rem 0.8rem 0.8rem;
+    }
+
+    .entry-item {
+      display: flex;
+      align-items: baseline;
+      padding: 0.55rem 0.6rem;
+      border-radius: 14px;
+      transition: 0.1s;
+      gap: 0.5rem;
+      border-bottom: 1px solid #272e44;
+    }
+
+    .entry-item:last-child {
+      border-bottom: none;
+    }
+
+    .entry-item:hover {
+      background: #252d45;
+    }
+
+    .entry-code {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      background: #11141f;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      font-size: 0.78rem;
+      color: #b8caff;
+      border: 1px solid #2f3857;
+      white-space: nowrap;
+      max-width: 45%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex-shrink: 0;
+    }
+
+    .entry-purpose {
+      color: #cdd6f0;
+      font-size: 0.9rem;
+      word-break: break-word;
+      line-height: 1.3;
+    }
+
+    .entry-purpose small {
+      color: #7b85a8;
+      font-size: 0.75rem;
+      margin-left: 0.3rem;
+    }
+
+    .no-match {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: #1a1e2d;
+      border-radius: 60px;
+      border: 1px dashed #36405e;
+      color: #8f99c0;
+      font-size: 1.1rem;
+    }
+
+    .no-match span {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: #5f6a8a;
+    }
+
+    /* footer */
+    .footer-note {
+      margin-top: 3.5rem;
+      font-size: 0.8rem;
+      color: #4e5779;
+      text-align: center;
+      border-top: 1px solid #282f44;
+      padding-top: 2rem;
+      width: 100%;
+      letter-spacing: 0.2px;
+    }
+
+    .footer-note a {
+      color: #7a89c4;
+      text-decoration: none;
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .header h1 { font-size: 1.7rem; }
+      .card-grid { grid-template-columns: 1fr; }
+      #searchInput { padding: 0.9rem 1rem 0.9rem 3.2rem; }
+      .entry-code { max-width: 40%; font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header -->
+  <div class="header">
+    <h1>🧩 SimCheat · DB</h1>
+    <small>📋 13 sheets · The Sims 4</small>
+  </div>
+
+  <!-- search -->
+  <div class="search-wrapper">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search any cheat, purpose, category, or shortcut…" autofocus>
+  </div>
+  <div class="stats">
+    <span id="resultCount"></span>
+    <button id="clearBtn" aria-label="clear search">✕ clear</button>
+  </div>
+
+  <!-- card container -->
+  <div id="cardContainer" class="card-grid"></div>
+
+  <div class="footer-note">
+    ⚡ all data from The Sims 4 cheat database · template reference
+  </div>
+</div>
+
+<script>
+  (function() {
+    // --------------------------------------------------------------
+    // 1.  DATA – extracted from the xlsx template
+    // --------------------------------------------------------------
+    const sheets = [
+      {
+        name: 'Shortcuts',
+        entries: [
+          { code: 'Ctrl+Shift+C', purpose: 'Open cheat console' },
+          { code: 'Enter testingcheats true', purpose: 'Enable advanced cheats' },
+          { code: '9', purpose: 'Raise object' },
+          { code: '0', purpose: 'Lower object' },
+          { code: 'Alt', purpose: 'Free placement' },
+          { code: 'Shift+]', purpose: 'Enlarge' },
+          { code: 'Shift+[', purpose: 'Shrink' },
+          { code: 'Ctrl+F', purpose: 'Quarter tiles' },
+          { code: 'G', purpose: 'Toggle grid' }
+        ]
+      },
+      {
+        name: 'General',
+        entries: [
+          { code: 'testingcheats true', purpose: 'Enable cheats' },
+          { code: 'testingcheats false', purpose: 'Disable cheats' },
+          { code: 'help', purpose: 'List cheats' },
+          { code: 'fullscreen', purpose: 'Toggle fullscreen' }
+        ]
+      },
+      {
+        name: 'Money',
+        entries: [
+          { code: 'motherlode', purpose: '+50000' },
+          { code: 'kaching', purpose: '+1000' },
+          { code: 'rosebud', purpose: '+1000' },
+          { code: 'money [amount]', purpose: 'Set funds' },
+          { code: 'FreeRealEstate on', purpose: 'Free lots' },
+          { code: 'FreeRealEstate off', purpose: 'Disable' }
+        ]
+      },
+      {
+        name: 'BuildBuy',
+        entries: [
+          { code: 'bb.moveobjects', purpose: 'Free placement' },
+          { code: 'bb.showhiddenobjects', purpose: 'Hidden objects' },
+          { code: 'bb.showliveeditobjects', purpose: 'Live edit' },
+          { code: 'bb.enablefreebuild', purpose: 'Restricted lots' },
+          { code: 'bb.ignoregameplayunlocksentitlement', purpose: 'Career rewards' }
+        ]
+      },
+      {
+        name: 'CAS',
+        entries: [
+          { code: 'cas.fulleditmode', purpose: 'Full edit' },
+          { code: 'casclockspeed 0', purpose: 'Freeze animation' }
+        ]
+      },
+      {
+        name: 'Needs',
+        entries: [
+          { code: 'sims.fill_all_commodities', purpose: 'Fill needs' },
+          { code: 'stats.fill_all_commodities_household', purpose: 'Fill household' },
+          { code: 'fillmotive motive_hunger', purpose: 'Fill hunger' }
+        ]
+      },
+      {
+        name: 'Careers',
+        entries: [
+          { code: 'careers.promote [career]', purpose: 'Promote' },
+          { code: 'careers.demote [career]', purpose: 'Demote' },
+          { code: 'careers.add_career [career]', purpose: 'Add' },
+          { code: 'careers.remove_career [career]', purpose: 'Remove' }
+        ]
+      },
+      {
+        name: 'Skills',
+        entries: [
+          { code: 'stats.set_skill_level [skill] [level]', purpose: 'Set skill' }
+        ]
+      },
+      {
+        name: 'Relationships',
+        entries: [
+          { code: 'modifyrelationship First Last First Last 100 LTR_Friendship_Main', purpose: 'Max friendship' }
+        ]
+      },
+      {
+        name: 'Traits',
+        entries: [
+          { code: 'traits.equip_trait [TraitID]', purpose: 'Add trait' },
+          { code: 'traits.remove_trait [TraitID]', purpose: 'Remove trait' }
+        ]
+      },
+      {
+        name: 'Aspirations',
+        entries: [
+          { code: 'aspirations.complete_current_milestone', purpose: 'Complete milestone' }
+        ]
+      },
+      {
+        name: 'Occults',
+        entries: [
+          { code: 'traits.equip_trait trait_OccultVampire', purpose: 'Become vampire (example)' }
+        ]
+      },
+      {
+        name: 'DLC Index',
+        entries: [
+          { code: '📌 Note', purpose: 'This workbook is a template. A literally complete list of every cheat through every DLC exceeds ChatGPT output limits and cannot be generated exhaustively from built-in knowledge without external data.' }
+        ]
+      }
+    ];
+
+    // --------------------------------------------------------------
+    // 2.  DOM refs
+    // --------------------------------------------------------------
+    const container = document.getElementById('cardContainer');
+    const searchInput = document.getElementById('searchInput');
+    const resultCount = document.getElementById('resultCount');
+    const clearBtn = document.getElementById('clearBtn');
+
+    // --------------------------------------------------------------
+    // 3.  Rendering engine
+    // --------------------------------------------------------------
+    function renderSheets(filterText = '') {
+      const lowerFilter = filterText.trim().toLowerCase();
+      let totalVisibleEntries = 0;
+
+      // build html fragment
+      let html = '';
+
+      for (const sheet of sheets) {
+        // filter entries inside this sheet
+        let filteredEntries = sheet.entries;
+        if (lowerFilter !== '') {
+          filteredEntries = sheet.entries.filter(entry => {
+            const codeMatch = entry.code.toLowerCase().includes(lowerFilter);
+            const purposeMatch = entry.purpose.toLowerCase().includes(lowerFilter);
+            const sheetNameMatch = sheet.name.toLowerCase().includes(lowerFilter);
+            // also match shortcut specific: 9, Alt, Ctrl+F etc. are already in code
+            return codeMatch || purposeMatch || sheetNameMatch;
+          });
+        }
+
+        // if after filtering we have no entries, skip the whole card (unless filter is empty → show all)
+        if (filteredEntries.length === 0) {
+          // if filter is active and sheet has no match, we skip it
+          if (lowerFilter !== '') continue;
+          // if no filter, we show all sheets even with 0 entries? but all have entries > 0, so safe.
+        }
+
+        // count for stats
+        totalVisibleEntries += filteredEntries.length;
+
+        // card
+        html += `<div class="sheet-card">`;
+        html += `<div class="sheet-header"><span class="sheet-name">${sheet.name}</span><span class="sheet-badge">${filteredEntries.length} entry${filteredEntries.length !== 1 ? 's' : ''}</span></div>`;
+        html += `<div class="entries">`;
+
+        if (filteredEntries.length === 0) {
+          html += `<div style="padding: 0.7rem 0.9rem; color: #6b759a; font-style: italic;">no matching cheats</div>`;
+        } else {
+          for (const entry of filteredEntries) {
+            // if purpose is extremely long (DLC note) we keep it
+            const purposeText = entry.purpose;
+            html += `<div class="entry-item">`;
+            html += `<span class="entry-code">${entry.code}</span>`;
+            html += `<span class="entry-purpose">${purposeText}</span>`;
+            html += `</div>`;
+          }
+        }
+
+        html += `</div></div>`;
+      }
+
+      // if no sheets at all with matches
+      if (totalVisibleEntries === 0 && lowerFilter !== '') {
+        html = `<div class="no-match">🔎 no results for “${filterText}”<span>try a different keyword, cheat, or category</span></div>`;
+      } else if (totalVisibleEntries === 0 && lowerFilter === '') {
+        // fallback (should never happen because sheets have data)
+        html = `<div class="no-match">📭 no cheat sheets available</div>`;
+      }
+
+      container.innerHTML = html;
+      resultCount.textContent = `${totalVisibleEntries} cheat${totalVisibleEntries !== 1 ? 's' : ''} found`;
+    }
+
+    // --------------------------------------------------------------
+    // 4.  Search logic + clear
+    // --------------------------------------------------------------
+    function handleSearch() {
+      const value = searchInput.value;
+      renderSheets(value);
+    }
+
+    function clearSearch() {
+      searchInput.value = '';
+      renderSheets('');
+      searchInput.focus();
+    }
+
+    // event listeners
+    searchInput.addEventListener('input', handleSearch);
+    clearBtn.addEventListener('click', clearSearch);
+
+    // initial render
+    renderSheets('');
+
+    // optional: handle escape key to clear
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        clearSearch();
+        e.preventDefault();
+      }
+    });
+
+  })();
+</script>
+</body>
+</html>
