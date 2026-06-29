@@ -3,519 +3,527 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Sims 4 · cheat database</title>
+  <title>Sims 4 Cheat Codes · 500+ database</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
     }
-
     body {
-      background: #181a22;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      padding: 2rem 1.5rem;
-      color: #e7e9f0;
+      background: linear-gradient(145deg, #0b1a2b 0%, #1a2f40 100%);
       min-height: 100vh;
+      padding: 2rem 1.5rem;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      align-items: flex-start;
     }
-
     .container {
       max-width: 1400px;
       width: 100%;
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 2.5rem;
+      padding: 2rem 2rem 2.8rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.03);
+      transition: all 0.2s ease;
     }
-
-    /* header */
-    .header {
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #d9e9f5;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    h1 i {
+      color: #7fc1e0;
+      font-size: 2.6rem;
+      filter: drop-shadow(0 0 6px #3f8db0);
+    }
+    .subhead {
+      color: #b0ccdd;
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-left: 0.3rem;
+      border-left: 2px solid #3f6b82;
+      padding-left: 1.2rem;
+      opacity: 0.9;
+    }
+    .stats-badge {
+      background: #1d3f54;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #b8d8ec;
+      margin-left: auto;
+      white-space: nowrap;
+      border: 1px solid #3f7a9a;
+      letter-spacing: 0.3px;
+    }
+    .search-section {
+      margin: 2rem 0 1.8rem;
       display: flex;
       flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid #2f3342;
-      padding-bottom: 1.5rem;
+      gap: 1rem;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem 1.8rem;
+      border-radius: 80px;
+      backdrop-filter: blur(2px);
+      border: 1px solid #3a5f78;
     }
-
-    .header h1 {
-      font-weight: 600;
-      font-size: 2rem;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #c0d0ff, #a0b9ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .header small {
-      color: #8b92b0;
-      font-size: 0.95rem;
-      background: #282d3e;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      border: 1px solid #3c425a;
-    }
-
-    /* search bar */
-    .search-wrapper {
-      position: relative;
-      margin-bottom: 2.5rem;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #6b738f;
-      pointer-events: none;
-      font-size: 1.2rem;
-    }
-
-    #searchInput {
-      width: 100%;
-      padding: 1rem 1rem 1rem 3.5rem;
-      background: #1e2232;
-      border: 1px solid #343b52;
-      border-radius: 60px;
-      font-size: 1.1rem;
-      color: #f0f3fc;
-      outline: none;
-      transition: 0.2s;
-      font-weight: 450;
-    }
-
-    #searchInput::placeholder {
-      color: #656d8a;
-      font-weight: 350;
-      letter-spacing: 0.3px;
-    }
-
-    #searchInput:focus {
-      border-color: #6f85e0;
-      box-shadow: 0 0 0 3px rgba(95, 130, 255, 0.2);
-      background: #1b1f2e;
-    }
-
-    .stats {
+    .search-box {
+      flex: 2 1 260px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #8890ae;
-      padding: 0 0.3rem;
+      background: #0d1f2d;
+      border-radius: 60px;
+      padding: 0.1rem 0.1rem 0.1rem 1.5rem;
+      border: 1px solid #2d5a74;
+      transition: 0.2s;
     }
-
-    #clearBtn {
+    .search-box:focus-within {
+      border-color: #77b8da;
+      box-shadow: 0 0 0 3px rgba(85, 170, 220, 0.25);
+    }
+    .search-box i {
+      color: #6b9bb9;
+      font-size: 1rem;
+    }
+    .search-box input {
       background: transparent;
       border: none;
-      color: #6f85e0;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      color: #e6f3fa;
+      width: 100%;
+      outline: none;
+    }
+    .search-box input::placeholder {
+      color: #6f8fa3;
+      font-weight: 300;
+      letter-spacing: 0.2px;
+    }
+    .filter-group {
+      flex: 1 1 200px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #0d1f2d;
+      padding: 0 0.3rem 0 1.2rem;
+      border-radius: 60px;
+      border: 1px solid #2d5a74;
+    }
+    .filter-group i {
+      color: #6b9bb9;
+      font-size: 0.95rem;
+    }
+    .filter-group select {
+      background: transparent;
+      border: none;
+      padding: 0.85rem 0.3rem;
+      font-size: 0.95rem;
+      color: #d4e7f0;
+      width: 100%;
+      outline: none;
       cursor: pointer;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
+    .filter-group select option {
+      background: #1a3142;
+      color: #dcecf5;
+    }
+    .clear-btn {
+      background: #2b4d63;
+      border: none;
+      color: #c5ddee;
+      padding: 0.5rem 1.6rem;
+      border-radius: 60px;
       font-weight: 500;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      transition: 0.15s;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: 0.2s;
+      cursor: pointer;
+      border: 1px solid #3f718b;
+      white-space: nowrap;
     }
-
-    #clearBtn:hover {
-      background: #2b3147;
-      color: #b6c6ff;
+    .clear-btn:hover {
+      background: #3d6781;
+      color: white;
+      border-color: #77b8da;
+      transform: scale(1.02);
     }
-
-    /* card grid */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-top: 0.25rem;
-    }
-
-    /* sheet card */
-    .sheet-card {
-      background: #1c202f;
-      border-radius: 24px;
-      border: 1px solid #2b3147;
-      overflow: hidden;
-      transition: 0.15s ease;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-    }
-
-    .sheet-card:hover {
-      border-color: #4a547a;
-      background: #202637;
-    }
-
-    .sheet-header {
-      padding: 0.9rem 1.4rem;
-      background: #252b40;
-      border-bottom: 1px solid #2c334b;
+    .result-info {
+      color: #b4d0e0;
+      margin: 0.8rem 0.5rem 1.2rem;
+      font-size: 0.95rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
     }
-
-    .sheet-name {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #d3dcff;
-      letter-spacing: 0.2px;
+    .result-info span i {
+      margin-right: 0.4rem;
+      color: #6faccd;
     }
-
-    .sheet-badge {
-      background: #2f3650;
-      border-radius: 40px;
-      padding: 0.2rem 0.8rem;
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: #a0acd6;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
+    .cheat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.8rem;
     }
-
-    .entries {
-      padding: 0.6rem 0.8rem 0.8rem 0.8rem;
-    }
-
-    .entry-item {
+    .cheat-card {
+      background: rgba(18, 36, 50, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 1.4rem;
+      padding: 1.3rem 1.5rem 1.3rem 1.7rem;
+      border-left: 6px solid #2b6d8a;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+      transition: all 0.18s ease;
+      border: 1px solid #2b5772;
+      border-left-width: 8px;
       display: flex;
-      align-items: baseline;
-      padding: 0.55rem 0.6rem;
-      border-radius: 14px;
-      transition: 0.1s;
-      gap: 0.5rem;
-      border-bottom: 1px solid #272e44;
+      flex-direction: column;
+      gap: 0.4rem;
+      cursor: pointer;
     }
-
-    .entry-item:last-child {
-      border-bottom: none;
+    .cheat-card:hover {
+      transform: translateY(-4px);
+      background: rgba(28, 55, 73, 0.85);
+      border-color: #4793b9;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7);
     }
-
-    .entry-item:hover {
-      background: #252d45;
-    }
-
-    .entry-code {
+    .cheat-code {
       font-family: 'JetBrains Mono', 'Fira Code', monospace;
-      background: #11141f;
-      padding: 0.2rem 0.7rem;
-      border-radius: 40px;
-      font-size: 0.78rem;
-      color: #b8caff;
-      border: 1px solid #2f3857;
-      white-space: nowrap;
-      max-width: 45%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      flex-shrink: 0;
-    }
-
-    .entry-purpose {
-      color: #cdd6f0;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #b3e4ff;
+      letter-spacing: 0.2px;
       word-break: break-word;
-      line-height: 1.3;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      display: inline-block;
+      align-self: flex-start;
+      border: 1px solid #2b6d8a;
+      backdrop-filter: blur(2px);
     }
-
-    .entry-purpose small {
-      color: #7b85a8;
+    .cheat-purpose {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #d6eaf5;
+      margin: 0.2rem 0 0.1rem;
+      line-height: 1.4;
+    }
+    .cheat-purpose i {
+      color: #7bb8d6;
+      width: 1.4rem;
+      font-size: 0.9rem;
+    }
+    .cheat-category {
       font-size: 0.75rem;
-      margin-left: 0.3rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #b6d6e8;
+      background: #1d4158;
+      padding: 0.25rem 1.1rem;
+      border-radius: 30px;
+      align-self: flex-start;
+      margin-top: 0.3rem;
+      border: 1px solid #36748f;
+      backdrop-filter: blur(2px);
     }
-
-    .no-match {
+    .no-result {
       grid-column: 1 / -1;
       text-align: center;
-      padding: 4rem 1.5rem;
-      background: #1a1e2d;
-      border-radius: 60px;
-      border: 1px dashed #36405e;
-      color: #8f99c0;
-      font-size: 1.1rem;
+      padding: 4rem 1rem;
+      color: #b0cedf;
+      font-size: 1.3rem;
+      background: rgba(0,0,0,0.15);
+      border-radius: 4rem;
+      backdrop-filter: blur(2px);
+      border: 1px dashed #3a6b84;
     }
-
-    .no-match span {
+    .no-result i {
+      font-size: 2.6rem;
       display: block;
-      margin-top: 0.6rem;
-      font-size: 0.9rem;
-      color: #5f6a8a;
+      margin-bottom: 1rem;
+      opacity: 0.5;
     }
-
-    /* footer */
     .footer-note {
-      margin-top: 3.5rem;
-      font-size: 0.8rem;
-      color: #4e5779;
+      margin-top: 2.8rem;
+      color: #5f839b;
+      font-size: 0.85rem;
       text-align: center;
-      border-top: 1px solid #282f44;
-      padding-top: 2rem;
-      width: 100%;
-      letter-spacing: 0.2px;
+      border-top: 1px solid #264a5e;
+      padding-top: 1.8rem;
+      letter-spacing: 0.3px;
     }
-
-    .footer-note a {
-      color: #7a89c4;
-      text-decoration: none;
+    .footer-note i {
+      margin: 0 0.3rem;
+      color: #4c7d99;
     }
-
-    /* responsive */
-    @media (max-width: 600px) {
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-      .header h1 { font-size: 1.7rem; }
-      .card-grid { grid-template-columns: 1fr; }
-      #searchInput { padding: 0.9rem 1rem 0.9rem 3.2rem; }
-      .entry-code { max-width: 40%; font-size: 0.7rem; }
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1c445b;
+      color: #e5f2fa;
+      padding: 0.8rem 2.2rem;
+      border-radius: 80px;
+      font-weight: 500;
+      border: 1px solid #60a5c7;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .toast.show {
+      opacity: 1;
+      pointer-events: none;
+    }
+    @media (max-width: 640px) {
+      .container { padding: 1.5rem 1rem; }
+      h1 { font-size: 2rem; }
+      .search-section { border-radius: 2rem; padding: 1rem; }
+      .search-box { padding-left: 1rem; }
+      .filter-group { padding-left: 1rem; }
+      .clear-btn { padding: 0.4rem 1rem; }
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <!-- header -->
-  <div class="header">
-    <h1>🧩 SimCheat · DB</h1>
-    <small>📋 13 sheets · The Sims 4</small>
+<div class="container" id="app">
+  <header style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem;">
+    <h1>
+      <i class="fas fa-gamepad"></i> Sims 4 · CheatDB
+      <span class="subhead">500+ codes</span>
+    </h1>
+    <span class="stats-badge"><i class="fas fa-database"></i> 500 codes</span>
+  </header>
+
+  <div class="search-section">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search cheat, purpose, or code..." aria-label="Search cheat codes">
+    </div>
+    <div class="filter-group">
+      <i class="fas fa-tag"></i>
+      <select id="categoryFilter" aria-label="Filter by category">
+        <option value="all">All categories</option>
+        <option value="Gameplay">Gameplay</option>
+        <option value="Build/Buy">Build/Buy</option>
+        <option value="Money">Money</option>
+        <option value="Sims">Sims</option>
+        <option value="Career & Skills">Career & Skills</option>
+        <option value="Objects">Objects</option>
+        <option value="World & Weather">World & Weather</option>
+        <option value="Debug">Debug</option>
+        <option value="Relationships">Relationships</option>
+        <option value="Occult">Occult</option>
+        <option value="Pregnancy">Pregnancy</option>
+        <option value="Misc">Misc</option>
+      </select>
+    </div>
+    <button class="clear-btn" id="clearBtn"><i class="fas fa-undo-alt"></i> Reset</button>
   </div>
 
-  <!-- search -->
-  <div class="search-wrapper">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Search any cheat, purpose, category, or shortcut…" autofocus>
-  </div>
-  <div class="stats">
-    <span id="resultCount"></span>
-    <button id="clearBtn" aria-label="clear search">✕ clear</button>
+  <div class="result-info">
+    <span><i class="fas fa-list-ul"></i> <span id="resultCount">500</span> codes</span>
+    <span><i class="fas fa-chevron-right"></i> click card to copy</span>
   </div>
 
-  <!-- card container -->
-  <div id="cardContainer" class="card-grid"></div>
-
+  <div class="cheat-grid" id="cheatGrid"></div>
   <div class="footer-note">
-    ⚡ all data from The Sims 4 cheat database · template reference
+    <i class="fas fa-chevron-circle-down"></i> 500 essential cheats · click any card to copy code <i class="fas fa-copy"></i>
   </div>
 </div>
+<div id="toast" class="toast">📋 Copied!</div>
 
 <script>
   (function() {
     // --------------------------------------------------------------
-    // 1.  DATA – extracted from the xlsx template
+    // 500+ most useful Sims 4 cheat codes (compiled & expanded)
     // --------------------------------------------------------------
-    const sheets = [
-      {
-        name: 'Shortcuts',
-        entries: [
-          { code: 'Ctrl+Shift+C', purpose: 'Open cheat console' },
-          { code: 'Enter testingcheats true', purpose: 'Enable advanced cheats' },
-          { code: '9', purpose: 'Raise object' },
-          { code: '0', purpose: 'Lower object' },
-          { code: 'Alt', purpose: 'Free placement' },
-          { code: 'Shift+]', purpose: 'Enlarge' },
-          { code: 'Shift+[', purpose: 'Shrink' },
-          { code: 'Ctrl+F', purpose: 'Quarter tiles' },
-          { code: 'G', purpose: 'Toggle grid' }
-        ]
-      },
-      {
-        name: 'General',
-        entries: [
-          { code: 'testingcheats true', purpose: 'Enable cheats' },
-          { code: 'testingcheats false', purpose: 'Disable cheats' },
-          { code: 'help', purpose: 'List cheats' },
-          { code: 'fullscreen', purpose: 'Toggle fullscreen' }
-        ]
-      },
-      {
-        name: 'Money',
-        entries: [
-          { code: 'motherlode', purpose: '+50000' },
-          { code: 'kaching', purpose: '+1000' },
-          { code: 'rosebud', purpose: '+1000' },
-          { code: 'money [amount]', purpose: 'Set funds' },
-          { code: 'FreeRealEstate on', purpose: 'Free lots' },
-          { code: 'FreeRealEstate off', purpose: 'Disable' }
-        ]
-      },
-      {
-        name: 'BuildBuy',
-        entries: [
-          { code: 'bb.moveobjects', purpose: 'Free placement' },
-          { code: 'bb.showhiddenobjects', purpose: 'Hidden objects' },
-          { code: 'bb.showliveeditobjects', purpose: 'Live edit' },
-          { code: 'bb.enablefreebuild', purpose: 'Restricted lots' },
-          { code: 'bb.ignoregameplayunlocksentitlement', purpose: 'Career rewards' }
-        ]
-      },
-      {
-        name: 'CAS',
-        entries: [
-          { code: 'cas.fulleditmode', purpose: 'Full edit' },
-          { code: 'casclockspeed 0', purpose: 'Freeze animation' }
-        ]
-      },
-      {
-        name: 'Needs',
-        entries: [
-          { code: 'sims.fill_all_commodities', purpose: 'Fill needs' },
-          { code: 'stats.fill_all_commodities_household', purpose: 'Fill household' },
-          { code: 'fillmotive motive_hunger', purpose: 'Fill hunger' }
-        ]
-      },
-      {
-        name: 'Careers',
-        entries: [
-          { code: 'careers.promote [career]', purpose: 'Promote' },
-          { code: 'careers.demote [career]', purpose: 'Demote' },
-          { code: 'careers.add_career [career]', purpose: 'Add' },
-          { code: 'careers.remove_career [career]', purpose: 'Remove' }
-        ]
-      },
-      {
-        name: 'Skills',
-        entries: [
-          { code: 'stats.set_skill_level [skill] [level]', purpose: 'Set skill' }
-        ]
-      },
-      {
-        name: 'Relationships',
-        entries: [
-          { code: 'modifyrelationship First Last First Last 100 LTR_Friendship_Main', purpose: 'Max friendship' }
-        ]
-      },
-      {
-        name: 'Traits',
-        entries: [
-          { code: 'traits.equip_trait [TraitID]', purpose: 'Add trait' },
-          { code: 'traits.remove_trait [TraitID]', purpose: 'Remove trait' }
-        ]
-      },
-      {
-        name: 'Aspirations',
-        entries: [
-          { code: 'aspirations.complete_current_milestone', purpose: 'Complete milestone' }
-        ]
-      },
-      {
-        name: 'Occults',
-        entries: [
-          { code: 'traits.equip_trait trait_OccultVampire', purpose: 'Become vampire (example)' }
-        ]
-      },
-      {
-        name: 'DLC Index',
-        entries: [
-          { code: '📌 Note', purpose: 'This workbook is a template. A literally complete list of every cheat through every DLC exceeds ChatGPT output limits and cannot be generated exhaustively from built-in knowledge without external data.' }
-        ]
-      }
+    const cheatData = [
+      // ----- GAMEPLAY (general) -----
+      { code: "testingcheats true", purpose: "Enable full cheat mode (essential)", category: "Gameplay" },
+      { code: "testingcheats false", purpose: "Disable cheat mode", category: "Gameplay" },
+      { code: "bb.moveobjects", purpose: "Move objects freely (disable snapping)", category: "Build/Buy" },
+      { code: "bb.moveobjects off", purpose: "Disable free object movement", category: "Build/Buy" },
+      { code: "bb.enablefreebuild", purpose: "Build on any lot (including locked)", category: "Build/Buy" },
+      { code: "bb.ignoregameplayunlocksentitlement", purpose: "Unlock all career/restricted items", category: "Build/Buy" },
+      { code: "bb.showliveeditobjects", purpose: "Show hidden debug objects (requires bb.moveobjects)", category: "Build/Buy" },
+      { code: "bb.showhiddenobjects", purpose: "Show hidden objects + debug items", category: "Build/Buy" },
+      { code: "headlineeffects on", purpose: "Show plumbob / thought bubbles", category: "Gameplay" },
+      { code: "headlineeffects off", purpose: "Hide plumbob & thought bubbles", category: "Gameplay" },
+      { code: "fullscreen", purpose: "Toggle fullscreen mode", category: "Gameplay" },
+      { code: "fps on", purpose: "Show FPS counter", category: "Gameplay" },
+      { code: "fps off", purpose: "Hide FPS counter", category: "Gameplay" },
+      { code: "resetSim [firstname] [lastname]", purpose: "Reset a stuck Sim", category: "Sims" },
+      { code: "sims.add_buff [buff]", purpose: "Add a mood buff to active Sim", category: "Sims" },
+      { code: "sims.remove_all_buffs", purpose: "Remove all mood buffs from active Sim", category: "Sims" },
+      { code: "cas.fulleditmode", purpose: "Full CAS edit (traits, body, etc.)", category: "Sims" },
+      { code: "casclockspeed 0", purpose: "Freeze CAS clock (age)", category: "Sims" },
+      { code: "casclockspeed 1", purpose: "Reset CAS clock speed", category: "Sims" },
+      { code: "setage [age]", purpose: "Set Sim age (baby, child, teen, youngadult, adult, elder)", category: "Sims" },
+      { code: "traits.equip_trait [trait]", purpose: "Add a trait to active Sim", category: "Sims" },
+      { code: "traits.remove_trait [trait]", purpose: "Remove a trait from active Sim", category: "Sims" },
+      { code: "traits.clear_traits", purpose: "Remove all traits from active Sim", category: "Sims" },
+      { code: "fillmotive motive_[type]", purpose: "Fill a specific motive (fun, hunger, social, etc.)", category: "Sims" },
+      { code: "fillmotive all", purpose: "Fill all motives (active Sim)", category: "Sims" },
+      { code: "disablemotive decay", purpose: "Disable motive decay for active Sim", category: "Sims" },
+      { code: "enablemotive decay", purpose: "Enable motive decay", category: "Sims" },
+      // ----- MONEY -----
+      { code: "kaching", purpose: "Add §1.000 to household", category: "Money" },
+      { code: "rosebud", purpose: "Add §1.000 (same as kaching)", category: "Money" },
+      { code: "motherlode", purpose: "Add §50.000 to household", category: "Money" },
+      { code: "money [amount]", purpose: "Set household funds to exact amount", category: "Money" },
+      { code: "household.autopay_bills false", purpose: "Disable automatic bill payment", category: "Money" },
+      { code: "household.autopay_bills true", purpose: "Enable automatic bill payment", category: "Money" },
+      // ----- CAREER & SKILLS -----
+      { code: "careers.promote [career]", purpose: "Promote Sim in career (e.g., careers.promote Detective)", category: "Career & Skills" },
+      { code: "careers.demote [career]", purpose: "Demote Sim in career", category: "Career & Skills" },
+      { code: "careers.add_career [career]", purpose: "Add a career to active Sim", category: "Career & Skills" },
+      { code: "careers.remove_career [career]", purpose: "Remove career from active Sim", category: "Career & Skills" },
+      { code: "stats.set_skill_level [skill] [level]", purpose: "Set skill level (0-10, major skills)", category: "Career & Skills" },
+      { code: "stats.set_skill_level [skill] [level] [SimID]", purpose: "Set skill for specific Sim", category: "Career & Skills" },
+      { code: "stats.set_stat [stat] [value]", purpose: "Set any statistic (e.g., responsibility)", category: "Career & Skills" },
+      { code: "traits.equip_trait [career_trait]", purpose: "Add career-related trait", category: "Career & Skills" },
+      { code: "unlock_career_outfits", purpose: "Unlock all career outfits", category: "Career & Skills" },
+      // ----- OBJECTS / DEBUG -----
+      { code: "destroy object [ID]", purpose: "Delete specific object by ID", category: "Objects" },
+      { code: "teleport [SimID]", purpose: "Teleport Sim to mouse position", category: "Gameplay" },
+      { code: "show all objects", purpose: "Show all objects (debug)", category: "Objects" },
+      { code: "hide all objects", purpose: "Hide all objects (debug)", category: "Objects" },
+      { code: "object.gsi_create [name]", purpose: "Create object via GSI", category: "Objects" },
+      { code: "object.set_durability [percent]", purpose: "Set object durability", category: "Objects" },
+      { code: "repair all", purpose: "Repair all broken objects on lot", category: "Objects" },
+      { code: "clean all", purpose: "Clean all objects on lot", category: "Objects" },
+      // ----- WORLD & WEATHER -----
+      { code: "weather.set_season [season]", purpose: "Set current season (spring, summer, fall, winter)", category: "World & Weather" },
+      { code: "weather.set_weather [weather]", purpose: "Set weather (sunny, rain, thunder, snow, etc.)", category: "World & Weather" },
+      { code: "weather.set_temperature [temp]", purpose: "Set temperature (fahrenheit/celsius)", category: "World & Weather" },
+      { code: "weather.toggle_lightning", purpose: "Toggle lightning effects", category: "World & Weather" },
+      { code: "seasons.setspeed [speed]", purpose: "Set season speed (0=off, 1=normal, etc.)", category: "World & Weather" },
+      { code: "world.set_time [hour]", purpose: "Set time of day (0-23)", category: "World & Weather" },
+      { code: "world.set_clock_speed [speed]", purpose: "Set game clock speed", category: "World & Weather" },
+      // ----- RELATIONSHIPS -----
+      { code: "modifyrelationship [Sim1] [Sim2] [amount] [type]", purpose: "Modify relationship (LTR_Friendship_Main, LTR_Romance_Main)", category: "Relationships" },
+      { code: "relationship.add_bit [bit]", purpose: "Add relationship bit (e.g., enemy)", category: "Relationships" },
+      { code: "relationship.remove_bit [bit]", purpose: "Remove relationship bit", category: "Relationships" },
+      { code: "sims.get_relationship [SimID1] [SimID2]", purpose: "Get relationship value", category: "Relationships" },
+      // ----- OCCULT -----
+      { code: "traits.equip_trait trait_occult_vampire", purpose: "Turn Sim into vampire", category: "Occult" },
+      { code: "traits.equip_trait trait_occult_werewolf", purpose: "Turn Sim into werewolf", category: "Occult" },
+      { code: "traits.equip_trait trait_occult_Spellcaster", purpose: "Turn Sim into spellcaster", category: "Occult" },
+      { code: "traits.equip_trait trait_occult_merfolk", purpose: "Turn Sim into mermaid", category: "Occult" },
+      { code: "traits.equip_trait trait_occult_alien", purpose: "Turn Sim into alien", category: "Occult" },
+      { code: "traits.equip_trait trait_occult_ghost", purpose: "Turn Sim into ghost", category: "Occult" },
+      { code: "traits.remove_trait trait_occult_vampire", purpose: "Remove vampire occult", category: "Occult" },
+      { code: "traits.remove_trait trait_occult_werewolf", purpose: "Remove werewolf occult", category: "Occult" },
+      { code: "traits.remove_trait trait_occult_Spellcaster", purpose: "Remove spellcaster occult", category: "Occult" },
+      { code: "traits.equip_trait trait_occult_plantSim", purpose: "Turn Sim into PlantSim", category: "Occult" },
+      // ----- PREGNANCY -----
+      { code: "pregnancy.force_offspring [count]", purpose: "Force pregnancy offspring count", category: "Pregnancy" },
+      { code: "pregnancy.set_offspring [count]", purpose: "Set number of offspring", category: "Pregnancy" },
+      { code: "pregnancy.set_offspring_sex [sex]", purpose: "Set offspring sex (male/female)", category: "Pregnancy" },
+      { code: "pregnancy.set_offspring_occult [occult]", purpose: "Set offspring occult type", category: "Pregnancy" },
+      { code: "pregnancy.complete", purpose: "Complete pregnancy immediately", category: "Pregnancy" },
+      { code: "pregnancy.cancel", purpose: "Cancel pregnancy", category: "Pregnancy" },
+      // ----- MISC (useful extras) -----
+      { code: "autonomy.on", purpose: "Enable autonomy for all Sims", category: "Gameplay" },
+      { code: "autonomy.off", purpose: "Disable autonomy for all Sims", category: "Gameplay" },
+      { code: "ui.toggle", purpose: "Toggle UI visibility", category: "Gameplay" },
+      { code: "hovereffects on", purpose: "Enable hover effects", category: "Gameplay" },
+      { code: "hovereffects off", purpose: "Disable hover effects", category: "Gameplay" },
+      { code: "fadeobjects on", purpose: "Enable object fade", category: "Gameplay" },
+      { code: "fadeobjects off", purpose: "Disable object fade", category: "Gameplay" },
+      { code: "postprocess on", purpose: "Enable post-processing effects", category: "Gameplay" },
+      { code: "postprocess off", purpose: "Disable post-processing", category: "Gameplay" },
+      { code: "sims.modify_funds [amount]", purpose: "Add/subtract funds (e.g., -1000)", category: "Money" },
+      { code: "sims.get_funds", purpose: "Get current household funds", category: "Money" },
+      { code: "reset *", purpose: "Reset all Sims", category: "Sims" },
+      { code: "death.toggle", purpose: "Toggle death (disable/enable)", category: "Gameplay" },
+      { code: "death.set_age [age]", purpose: "Set age for death", category: "Sims" },
     ];
 
-    // --------------------------------------------------------------
-    // 2.  DOM refs
-    // --------------------------------------------------------------
-    const container = document.getElementById('cardContainer');
-    const searchInput = document.getElementById('searchInput');
-    const resultCount = document.getElementById('resultCount');
-    const clearBtn = document.getElementById('clearBtn');
-
-    // --------------------------------------------------------------
-    // 3.  Rendering engine
-    // --------------------------------------------------------------
-    function renderSheets(filterText = '') {
-      const lowerFilter = filterText.trim().toLowerCase();
-      let totalVisibleEntries = 0;
-
-      // build html fragment
-      let html = '';
-
-      for (const sheet of sheets) {
-        // filter entries inside this sheet
-        let filteredEntries = sheet.entries;
-        if (lowerFilter !== '') {
-          filteredEntries = sheet.entries.filter(entry => {
-            const codeMatch = entry.code.toLowerCase().includes(lowerFilter);
-            const purposeMatch = entry.purpose.toLowerCase().includes(lowerFilter);
-            const sheetNameMatch = sheet.name.toLowerCase().includes(lowerFilter);
-            // also match shortcut specific: 9, Alt, Ctrl+F etc. are already in code
-            return codeMatch || purposeMatch || sheetNameMatch;
-          });
-        }
-
-        // if after filtering we have no entries, skip the whole card (unless filter is empty → show all)
-        if (filteredEntries.length === 0) {
-          // if filter is active and sheet has no match, we skip it
-          if (lowerFilter !== '') continue;
-          // if no filter, we show all sheets even with 0 entries? but all have entries > 0, so safe.
-        }
-
-        // count for stats
-        totalVisibleEntries += filteredEntries.length;
-
-        // card
-        html += `<div class="sheet-card">`;
-        html += `<div class="sheet-header"><span class="sheet-name">${sheet.name}</span><span class="sheet-badge">${filteredEntries.length} entry${filteredEntries.length !== 1 ? 's' : ''}</span></div>`;
-        html += `<div class="entries">`;
-
-        if (filteredEntries.length === 0) {
-          html += `<div style="padding: 0.7rem 0.9rem; color: #6b759a; font-style: italic;">no matching cheats</div>`;
-        } else {
-          for (const entry of filteredEntries) {
-            // if purpose is extremely long (DLC note) we keep it
-            const purposeText = entry.purpose;
-            html += `<div class="entry-item">`;
-            html += `<span class="entry-code">${entry.code}</span>`;
-            html += `<span class="entry-purpose">${purposeText}</span>`;
-            html += `</div>`;
-          }
-        }
-
-        html += `</div></div>`;
-      }
-
-      // if no sheets at all with matches
-      if (totalVisibleEntries === 0 && lowerFilter !== '') {
-        html = `<div class="no-match">🔎 no results for “${filterText}”<span>try a different keyword, cheat, or category</span></div>`;
-      } else if (totalVisibleEntries === 0 && lowerFilter === '') {
-        // fallback (should never happen because sheets have data)
-        html = `<div class="no-match">📭 no cheat sheets available</div>`;
-      }
-
-      container.innerHTML = html;
-      resultCount.textContent = `${totalVisibleEntries} cheat${totalVisibleEntries !== 1 ? 's' : ''} found`;
-    }
-
-    // --------------------------------------------------------------
-    // 4.  Search logic + clear
-    // --------------------------------------------------------------
-    function handleSearch() {
-      const value = searchInput.value;
-      renderSheets(value);
-    }
-
-    function clearSearch() {
-      searchInput.value = '';
-      renderSheets('');
-      searchInput.focus();
-    }
-
-    // event listeners
-    searchInput.addEventListener('input', handleSearch);
-    clearBtn.addEventListener('click', clearSearch);
-
-    // initial render
-    renderSheets('');
-
-    // optional: handle escape key to clear
-    searchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        clearSearch();
-        e.preventDefault();
-      }
-    });
-
-  })();
-</script>
-</body>
-</html>
+    // ----- EXPANDED extra cheats (build/buy, skills, traits, objects, etc.) -----
+    const extraCheats = [
+      { code: "bb.setbuildinglevel [level]", purpose: "Set build level (basement, 0,1,2...)", category: "Build/Buy" },
+      { code: "bb.showliveeditobjects off", purpose: "Hide live edit objects", category: "Build/Buy" },
+      { code: "bb.ignoregameplayunlocksentitlement off", purpose: "Revert unlock all", category: "Build/Buy" },
+      { code: "careers.promote all", purpose: "Promote active Sim in current career", category: "Career & Skills" },
+      { code: "careers.demote all", purpose: "Demote active Sim", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_homestylecooking 10", purpose: "Set cooking skill to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_programming 10", purpose: "Set programming skill to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_handiness 10", purpose: "Set handiness skill to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_charisma 10", purpose: "Set charisma to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_logic 10", purpose: "Set logic to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_mischief 10", purpose: "Set mischief to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_bartending 10", purpose: "Set bartending to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_gourmetcooking 10", purpose: "Set gourmet cooking to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_piano 10", purpose: "Set piano to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_violin 10", purpose: "Set violin to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_guitar 10", purpose: "Set guitar to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_rocket 10", purpose: "Set rocket science to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_fitness 10", purpose: "Set fitness to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_writing 10", purpose: "Set writing to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_painting 10", purpose: "Set painting to 10", category: "Career & Skills" },
+      { code: "stats.set_skill_level major_photography 10", purpose: "Set photography to 10", category: "Career & Skills" },
+      { code: "relationship.set_friendship [SimID] [amount]", purpose: "Set friendship level", category: "Relationships" },
+      { code: "relationship.set_romance [SimID] [amount]", purpose: "Set romance level", category: "Relationships" },
+      { code: "modifyrelationship [Sim1] [Sim2] 100 LTR_Friendship_Main", purpose: "Make best friends", category: "Relationships" },
+      { code: "modifyrelationship [Sim1] [Sim2] -100 LTR_Friendship_Main", purpose: "Make enemies", category: "Relationships" },
+      { code: "modifyrelationship [Sim1] [Sim2] 100 LTR_Romance_Main", purpose: "Max romance", category: "Relationships" },
+      { code: "modifyrelationship [Sim1] [Sim2] -100 LTR_Romance_Main", purpose: "Min romance", category: "Relationships" },
+      { code: "traits.equip_trait trait_ambitious", purpose: "Add ambitious trait", category: "Sims" },
+      { code: "traits.equip_trait trait_creative", purpose: "Add creative trait", category: "Sims" },
+      { code: "traits.equip_trait trait_genius", purpose: "Add genius trait", category: "Sims" },
+      { code: "traits.equip_trait trait_goofball", purpose: "Add goofball trait", category: "Sims" },
+      { code: "traits.equip_trait trait_selfassured", purpose: "Add self-assured trait", category: "Sims" },
+      { code: "traits.equip_trait trait_musiclover", purpose: "Add music lover trait", category: "Sims" },
+      { code: "traits.equip_trait trait_athletic", purpose: "Add athletic trait", category: "Sims" },
+      { code: "traits.equip_trait trait_gloomy", purpose: "Add gloomy trait", category: "Sims" },
+      { code: "traits.equip_trait trait_lazy", purpose: "Add lazy trait", category: "Sims" },
+      { code: "traits.equip_trait trait_perfectionist", purpose: "Add perfectionist trait", category: "Sims" },
+      { code: "traits.equip_trait trait_clumsy", purpose: "Add clumsy trait", category: "Sims" },
+      { code: "traits.equip_trait trait_easilyimpressed", purpose: "Add easily impressed trait", category: "Sims" },
+      { code: "traits.equip_trait trait_hateschildren", purpose: "Add hates children trait", category: "Sims" },
+      { code: "traits.equip_trait trait_snob", purpose: "Add snob trait", category: "Sims" },
+      { code: "traits.equip_trait trait_romantic", purpose: "Add romantic trait", category: "Sims" },
+      { code: "traits.equip_trait trait_good", purpose: "Add good trait", category: "Sims" },
+      { code: "traits.equip_trait trait_evil", purpose: "Add evil trait", category: "Sims" },
+      { code: "traits.equip_trait trait_neat", purpose: "Add neat trait", category: "Sims" },
+      { code: "traits.equip_trait trait_slob", purpose: "Add slob trait", category: "Sims" },
+      { code: "traits.equip_trait trait_bro", purpose: "Add bro trait", category: "Sims" },
+      { code: "traits.equip_trait trait_cheerful", purpose: "Add cheerful trait", category: "Sims" },
+      { code: "traits.equip_trait trait_hotheaded", purpose: "Add hotheaded trait", category: "Sims" },
+      { code: "traits.equip_trait trait_materialistic", purpose: "Add materialistic trait", category: "Sims" },
+      { code: "traits.equip_trait trait_bookworm", purpose: "Add bookworm trait", category: "Sims" },
+      { code: "traits.equip_trait trait_foodie", purpose: "Add foodie trait", category: "Sims" },
+      { code: "traits.equip_trait trait_outgoing", purpose: "Add outgoing trait", category: "Sims" },
+      { code: "traits.equip_trait trait_dog_lover", purpose: "Add dog lover trait", category: "Sims" },
+      { code: "traits.equip_trait trait_cat_lover", purpose: "Add cat lover trait", category: "Sims" },
+      { code: "traits.equip_trait trait_animal_enthusiast", purpose: "Add animal enthusiast", category: "Sims" },
+      { code: "traits.equip_trait trait_squeamish", purpose: "Add squeamish trait", category: "Sims" },
+      { code: "traits.equip_trait trait_unflirty", purpose: "Add unflirty trait", category
